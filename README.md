@@ -1,8 +1,15 @@
-# React + Vite
+# Landing Page para Agencia de Marketing
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Esta es una landing page para una agencia de marketing, creada como un proyecto de práctica para explorar y mejorar mis habilidades en diseño y desarrollo web.
 
-Currently, two official plugins are available:
+## Tecnologías Utilizadas
+- **React** para la estructura de componentes.
+- **Tailwind CSS** para el diseño rápido y responsivo.
+- **React Icons** para los íconos en navegación y footer.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Descripción del Proyecto
+
+El objetivo de esta landing page es proporcionar una interfaz moderna y atractiva, con animaciones suaves y un diseño responsivo que se adapta a diferentes dispositivos.
+
+## Instalación
+1. Clona el repositorio:
