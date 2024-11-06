@@ -11,5 +11,3 @@ Esta es una landing page para una agencia de marketing, creada como un proyecto 
 
 El objetivo de esta landing page es proporcionar una interfaz moderna y atractiva, con animaciones suaves y un diseño responsivo que se adapta a diferentes dispositivos.
 
-## Instalación
-1. Clona el repositorio:
