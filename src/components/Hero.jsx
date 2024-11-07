@@ -2,7 +2,7 @@ import React from "react"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
 import "swiper/css/pagination"
-import { Autoplay, Pagination, EffectFade } from "swiper/modules"
+import { Autoplay, Pagination } from "swiper/modules"
 import backgroundImage1 from "../assets/hero-background1.avif"
 import backgroundImage2 from "../assets/hero-background2.avif"
 import backgroundImage3 from "../assets/hero-background3.avif"
@@ -12,21 +12,18 @@ const Hero = () => (
     id="hero"
     className="relative h-screen md:h-[70vh] text-center text-white overflow-hidden"
   >
-    {/* Carrusel de imágenes de fondo */}
     <Swiper
-      modules={[Autoplay, Pagination, EffectFade]}
+      modules={[Autoplay, Pagination]}
       slidesPerView={1}
       loop={true}
-      effect="fade"
-      fadeEffect={{ crossFade: true }}
-      autoplay={{ delay: 5000, disableOnInteraction: false }}
+      autoplay={{ delay: 3000, disableOnInteraction: false }} 
       pagination={{ clickable: true }}
+      speed={500} 
       className="absolute inset-0 w-full h-full"
     >
-     
       <SwiperSlide>
         <div
-          className="w-full h-full bg-cover bg-center md:bg-cover md:bg-center"
+          className="w-full h-full bg-cover bg-center"
           style={{ backgroundImage: `url(${backgroundImage1})` }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-blue-800 to-blue-500 opacity-50"></div>
@@ -34,7 +31,7 @@ const Hero = () => (
       </SwiperSlide>
       <SwiperSlide>
         <div
-          className="w-full h-full bg-cover bg-center md:bg-cover md:bg-center"
+          className="w-full h-full bg-cover bg-center"
           style={{ backgroundImage: `url(${backgroundImage2})` }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-blue-800 to-blue-500 opacity-50"></div>
@@ -42,7 +39,7 @@ const Hero = () => (
       </SwiperSlide>
       <SwiperSlide>
         <div
-          className="w-full h-full bg-cover bg-center md:bg-cover md:bg-center"
+          className="w-full h-full bg-cover bg-center"
           style={{ backgroundImage: `url(${backgroundImage3})` }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-blue-800 to-blue-500 opacity-50"></div>
@@ -50,7 +47,6 @@ const Hero = () => (
       </SwiperSlide>
     </Swiper>
 
-    
     <div className="absolute inset-0 flex items-center justify-center flex-col z-10 px-4">
       <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4">
         Potencia tu marca

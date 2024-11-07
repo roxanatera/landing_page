@@ -5,7 +5,7 @@ const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const menuRef = useRef(null);
 
-    // Cerrar el menú al hacer clic fuera de él
+    
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -24,7 +24,7 @@ const Header = () => {
         <header className="p-4 bg-white shadow-md fixed top-0 w-full z-20">
             <nav className="container mx-auto flex justify-between items-center px-4">
                 
-                {/* Logo y Nombre de la Agencia */}
+               
                 <div className="flex items-center space-x-2">
                     <img src={logo} alt="Logo de la Agencia" className="w-8 h-8 md:w-10 md:h-10" />
                     <h1 className="text-lg md:text-2xl font-bold text-gray-900">Agencia de Marketing</h1>
