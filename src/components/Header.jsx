@@ -1,11 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import logo from '../assets/logo.webp';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const menuRef = useRef(null);
+
+    // Cerrar el menú al hacer clic fuera de él
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (menuRef.current && !menuRef.current.contains(event.target)) {
+                setIsMenuOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
 
     return (
-        <header className="p-4 bg-white shadow-md fixed top-0 w-full z-10">
+        <header className="p-4 bg-white shadow-md fixed top-0 w-full z-20">
             <nav className="container mx-auto flex justify-between items-center px-4">
                 
                 {/* Logo y Nombre de la Agencia */}
@@ -14,7 +30,7 @@ const Header = () => {
                     <h1 className="text-lg md:text-2xl font-bold text-gray-900">Agencia de Marketing</h1>
                 </div>
 
-                {/* Botón de Menú para Pantallas Medianas */}
+                {/* Botón de Menú para Pantallas Pequeñas */}
                 <button
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
                     className="text-gray-700 md:hidden focus:outline-none"
@@ -35,48 +51,17 @@ const Header = () => {
                     </svg>
                 </button>
 
-                {/* Enlaces de Navegación con Efecto Hover */}
+                {/* Enlaces de Navegación */}
                 <ul
+                    ref={menuRef}
                     className={`flex-col md:flex-row md:flex space-y-4 md:space-y-0 md:space-x-6 mt-4 md:mt-0 ${
                         isMenuOpen ? 'flex' : 'hidden'
                     } md:flex`}
                 >
-                    <li>
-                        <a
-                            href="#services"
-                            className="relative text-gray-700 hover:text-blue-500 transition-colors duration-300"
-                        >
-                            Servicios
-                            <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 transform hover:w-full"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="#portfolio"
-                            className="relative text-gray-700 hover:text-blue-500 transition-colors duration-300"
-                        >
-                            Portafolio
-                            <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 transform hover:w-full"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="#team"
-                            className="relative text-gray-700 hover:text-blue-500 transition-colors duration-300"
-                        >
-                            Equipo
-                            <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 transform hover:w-full"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="#contact"
-                            className="relative text-gray-700 hover:text-blue-500 transition-colors duration-300"
-                        >
-                            Contacto
-                            <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 transform hover:w-full"></span>
-                        </a>
-                    </li>
+                    <li><a href="#services" className="text-gray-700 hover:text-blue-500">Servicios</a></li>
+                    <li><a href="#portfolio" className="text-gray-700 hover:text-blue-500">Portafolio</a></li>
+                    <li><a href="#team" className="text-gray-700 hover:text-blue-500">Equipo</a></li>
+                    <li><a href="#contact" className="text-gray-700 hover:text-blue-500">Contacto</a></li>
                 </ul>
             </nav>
         </header>
